@@ -23,3 +23,25 @@ main {
   height: 350px;
   overflow-y: auto;
 }
+
+form {
+  margin: 20px auto;
+  width: 100%;
+  max-width: 400px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 25px;
+}
+
+form button {
+  border: none;
+  color: white;
+  padding: 10px;
+}
+
+form label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #444;
+}

@@ -50,21 +50,59 @@ $hotels = [
     ],
 ];
 
+$parkingValue = $_GET["parking"] ?? "";
+$votoValue = $_GET["voto"] ?? "";
+
+$withParking = false;
+if ($parkingValue == "on") {
+$withParking = true;
+}
+$minVote = 0;
+if ($votoValue !== "") {
+   $minVote  = (int)$votoValue;
+}
+
+
+
 $colCard  = "";
 foreach ($hotels as $hotel) {
+if ($withParking == true) {
+if ($hotel["parking"] == false) {
+    continue;
+}
+}
+if ($hotel["vote"] <  $minVote){
+     continue;
+}
 
 $colCard .= '<div class = "col">'. '<div class="card  p-3">';
 foreach ($hotel as $key => $value) {
 if ($key == "parking") {
-     $value =  $value == true ? "Vero" : "Falso";
+ $value =  $value == true ? "Vero" : "Falso";
 }
 $colCard .= '<p>'. $key. ": ". '<strong>'. $value. '</strong>'. '</p>';
 }
 $colCard .= '</div>'. '</div>';
 } 
+
 ?>
 <main>
 <div class="container">
+<form class="p-4 mb-4 bg-white rounded shadow-sm" action="./index.php" method="GET">
+    <h5 class="mb-3 text-center">Filtra</h5>
+    <div class="form-check mb-3 d-flex justify-content-center align-items-center gap-2">
+        <input class="form-check-input m-0" type="checkbox" name="parking" id="parking" <?php echo $parkingValue == "" ? "" : "checked" ?>>
+        <label class="form-check-label" for="parking">
+            Solo con parcheggio
+        </label>
+    </div>
+    <div class="mb-3">
+        <label for="voto" class="form-label d-block text-center">Voto minimo (1-5):</label>
+        <input type="number" name="voto" id="voto" class="form-control" min="1" max="5" placeholder="Es. 3" value="<?php echo $votoValue ?>">
+    </div>
+
+    <button type="submit" class="btn btn-success w-100">Applica Filtri</button>
+</form>
 <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 row-gap-3">
 <?php echo $colCard?>
 
