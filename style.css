@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #d7d7d7;
+}
+
+header {
+  height: 50px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-color: #1a2b48;
+  color: #ffffff;
+}
+
+main {
+  padding: 20px;
+}
+.card {
+  height: 350px;
+  overflow-y: auto;
+}
