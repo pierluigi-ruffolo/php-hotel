@@ -11,8 +11,7 @@
 <body>
  <header class="d-flex justify-content-center">
 <p class="p-2">I NOSTRI HOTEL</p>
- </header>  
-<?php 
+ </header><?php 
 $hotels = [
 [
         'name' => 'Hotel Belvedere',
