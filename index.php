@@ -97,11 +97,12 @@ $colCard .= '</div>'. '</div>';
         </label>
     </div>
     <div class="mb-3">
-        <label for="voto" class="form-label d-block text-center">Voto minimo (1-5):</label>
-        <input type="number" name="voto" id="voto" class="form-control" min="1" max="5" placeholder="Es. 3" value="<?php echo $votoValue ?>">
+    <label for="voto" class="form-label d-block text-center">Voto minimo (1-5):</label>
+    <input type="number" name="voto" id="voto" class="form-control" min="1" max="5" placeholder="Es. 3" value="<?php echo $votoValue ?>">
     </div>
 
-    <button type="submit" class="btn btn-success w-100">Applica Filtri</button>
+   <div class="text-center"><button type="submit" class="btn btn-success w-50">Applica Filtri</button></div>
+   <div class="text-center"><a href="index.php" class="mt-2 btn btn-secondary w-50">Azzera filtri</a></div>
 </form>
 <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 row-gap-3">
 <?php echo $colCard?>
